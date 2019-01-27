@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.ReactTable .rt-tr:hover .rt-td {
+  background: rgba(138, 255, 138, 0.15);
+}
+
+.details-container {
+  text-align: left;
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.svg-icon {
+  position: relative;
+  height: 16px;
+  top: 3px;
+}
+
+.orders-list {
+  margin-left: 7px;
+}
+
+.orders-list ul {
+  margin-top: 5px;
+}
+
+.go-back-button {
+  text-align: left;
+}
+
+.creation-forms {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.creation-form {
+  display: inline-block;
+}
+
+.form-fields {
+  display: grid;
+  width: 320px;
+  line-height: 1.5;
+}
+
+.customer-form-fields {
+  grid-template-columns: 100px auto;
+}
+
+.order-form-fields {
+  grid-template-columns: 150px auto;
+}
