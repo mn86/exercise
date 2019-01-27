@@ -1,11 +1,8 @@
 package com.unycom.exercise.customer;
 
-import com.unycom.exercise.order.Order;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Data
 @NoArgsConstructor

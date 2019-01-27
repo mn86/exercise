@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "formik": "^1.4.2",
+    "intl": "^1.2.5",
     "moment": "^2.24.0",
     "rc-calendar": "^9.10.8",
     "react": "^16.7.0",
@@ -17,7 +18,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

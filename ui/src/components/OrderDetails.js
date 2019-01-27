@@ -10,7 +10,8 @@ class OrderDetails extends Component {
     constructor() {
         super();
         this.state = {
-            order: {}
+            order: {},
+            showDetails: false
         }
     }
 
@@ -19,15 +20,15 @@ class OrderDetails extends Component {
             .then(({ data: order }) => {
                 console.log('order', order);
                 this.setState({ order });
+                this.setState({ showDetails: true });
             });
     }
 
     render() {
         return (
             <div>
-                <GoBackButton/>
-                {/*Order details {JSON.stringify(this.state)}*/}
-                <div>
+                <h3 style={{display: this.state.showDetails ? 'none' : 'initial'}}>No such order</h3>
+                <div style={{display: this.state.showDetails ? 'initial' : 'none'}}>
                     <h2 style={{marginBottom: '10px'}}>Order details</h2>
                     <div className={'details-container'}>
                         <div>
@@ -46,10 +47,10 @@ class OrderDetails extends Component {
                             <b>Product:</b> {this.state.order.product}
                         </div>
                         <div>
-                            <b>Original price:</b> <PriceFormat price={this.state.order.originalPrice}/>
+                            <b>Original price:</b> <PriceFormat price={this.state.order.originalPrice}/> EUR
                         </div>
                         <div>
-                            <b>Discount price:</b> <DiscountPrice fullPrice={this.state.order.originalPrice}/>
+                            <b>Discount price:</b> <DiscountPrice fullPrice={this.state.order.originalPrice}/> EUR
                         </div>
 
                         <div>
@@ -62,7 +63,6 @@ class OrderDetails extends Component {
                         </div>
                     </div>
                 </div>
-
             </div>
         );
     }

@@ -13,6 +13,7 @@ public class AppConfig {
 
     @Bean
     public ModelMapper modelMapper() {
+        // this mapper has additional mapping to map orders count from Customer to DTO
         ModelMapper modelMapper = new ModelMapper();
         modelMapper
                 .typeMap(Customer.class, CustomerDto.class)

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ReactTable from "react-table";
 import 'react-table/react-table.css'
+import { Link } from 'react-router-dom';
 import ActiveStatusIcon from "./ActiveStatusIcon";
 
 class CustomersList extends Component {
@@ -67,6 +68,7 @@ class CustomersList extends Component {
                         }
                     }}
                 />
+                <Link to={'/test'} style={{position: 'relative', top: '10px'}}>&gt;&gt; Test page &lt;&lt;</Link>
             </div>
         );
     }

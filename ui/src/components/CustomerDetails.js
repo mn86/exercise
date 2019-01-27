@@ -10,7 +10,8 @@ class CustomerDetails extends Component {
     constructor() {
         super();
         this.state = {
-            customer: {}
+            customer: {},
+            showDetails: false
         }
     }
 
@@ -19,39 +20,43 @@ class CustomerDetails extends Component {
             .then(({ data: customer }) => {
                 console.log('customer', customer);
                 this.setState({ customer });
+                this.setState({ showDetails: true });
             });
     }
 
     render() {
         return (
             <div>
-                <h2 style={{marginBottom: '10px'}}>Customer details</h2>
-                <div className={'details-container'}>
-                    <div>
-                        <b>Id (remove):</b> {this.state.customer.id}
-                    </div>
-                    <div>
-                        <b>Code:</b> {this.state.customer.code}
-                    </div>
-                    <div>
-                        <b>Name:</b> {this.state.customer.name}
-                    </div>
-                    <div>
-                        <b>Location:</b> {this.state.customer.location}
-                    </div>
-                    <div>
-                        <b>Registration Date:</b> <Moment format="DD.MM.YYYY HH:mm:ss">{this.state.customer.registrationDate}</Moment>
-                    </div>
-                    <div>
-                        <b>Active:</b> <ActiveStatusIcon isActive={this.state.customer.active}/>
-                    </div>
-                    <div>
-                        <b>Type:</b> {this.state.customer.type} {this.state.customer.type === 'vip' ? <img className={'svg-icon'} src='../star.svg' alt='VIP icon'/> : ''}</div>
-                    <div>
-                        <b>Orders:</b> <CustomerOrdersList ordersList={this.state.customer.orders}/>
-                    </div>
-                    <div className={'go-back-button'}>
-                        <GoBackButton/>
+                <h3 style={{display: this.state.showDetails ? 'none' : 'initial'}}>No such customer</h3>
+                <div style={{display: this.state.showDetails ? 'initial' : 'none'}}>
+                    <h2 style={{marginBottom: '10px'}}>Customer details</h2>
+                    <div className={'details-container'}>
+                        <div>
+                            <b>Id:</b> {this.state.customer.id}
+                        </div>
+                        <div>
+                            <b>Code:</b> {this.state.customer.code}
+                        </div>
+                        <div>
+                            <b>Name:</b> {this.state.customer.name}
+                        </div>
+                        <div>
+                            <b>Location:</b> {this.state.customer.location}
+                        </div>
+                        <div>
+                            <b>Registration Date:</b> <Moment format="DD.MM.YYYY HH:mm:ss">{this.state.customer.registrationDate}</Moment>
+                        </div>
+                        <div>
+                            <b>Active:</b> <ActiveStatusIcon isActive={this.state.customer.active}/>
+                        </div>
+                        <div>
+                            <b>Type:</b> {this.state.customer.type} {this.state.customer.type === 'vip' ? <img className={'svg-icon'} src='../star.svg' alt='VIP icon'/> : ''}</div>
+                        <div>
+                            <b>Orders:</b> <CustomerOrdersList ordersList={this.state.customer.orders}/>
+                        </div>
+                        <div className={'go-back-button'}>
+                            <GoBackButton/>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ import java.util.Date;
 
 
 @RestController
-@CrossOrigin // TODO remove after debugging
+@CrossOrigin
 @RequestMapping("/v1/orders")
 public class OrderController {
 
