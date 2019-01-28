@@ -13,6 +13,7 @@ To build it :
 1) package with Maven: 
 
 `mvn package`
+
 2) start jar file 
 
 `java -jar target/exercise-0.0.1-SNAPSHOT.jar`
@@ -24,7 +25,7 @@ On main view there will be an empty list of customers, to add some customers you
 Optionally you could use h2-console on <http://localhost:8080/h2-console/> with JDBC URL: `jdbc:h2:file:~/exercisedb;AUTO_SERVER=true` and default user and password.
 Also you could use Postman or curl to POST directly to RESTApi endpoints:
 
-`http://localhost:8080/v1/customers`
+1) `http://localhost:8080/v1/customers`
 
 `{
 	"code": "0123456789012345678",
@@ -35,7 +36,7 @@ Also you could use Postman or curl to POST directly to RESTApi endpoints:
 	"type": "vip"
 }`
 
-`http://localhost:8080/v1/orders`
+2) `http://localhost:8080/v1/orders`
 
 `{
 	"orderDate": 1517011200000,
@@ -49,6 +50,10 @@ Also you could use Postman or curl to POST directly to RESTApi endpoints:
 	}
 }`
 
+Additional info regarding restapi endpoint available through <http://localhost:8080/swagger-ui.html>
+
 After customer will be added, you will be able to click on its row in table to open details.
 
 To add orders for specific user you can use the same >> Test page <<
+
+Dates on Test Pages could be entered as Unix Timestamps (with milliseconds)

@@ -18,32 +18,59 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+    /**
+     * Returns list of all CustomersDto
+     * @return Customer
+     */
     @GetMapping
     List<CustomerDto> getCustomers() {
         return customerService.getCustomersDtoList();
     }
 
+    /**
+     * Returns Customer by code
+     * @param code
+     * @return Customer
+     */
     @GetMapping("/code/{code}")
     Customer getCustomerByCode(@PathVariable String code) {
         return customerService.getCustomersByCode(code);
     }
 
+    /**
+     * Returns Customer by id
+     * @param id
+     * @return Customer
+     */
     @GetMapping("/{id}")
     Customer getCustomerById(@PathVariable Long id) {
         return customerService.getCustomerById(id);
     }
 
+    /**
+     * Saves new Customer entity
+     * @param customer
+     * @return Customer id
+     */
     @PostMapping
     Long saveNewCustomer(@RequestBody Customer customer) {
         customer.setRegistrationDate(new Date());
         return customerService.saveNewCustomer(customer);
     }
 
+    /**
+     * Updates Customer entity
+     * @param customer
+     */
     @PutMapping
-    Long updateCustomer(@RequestBody Customer customer) {
-        return customerService.updateCustomer(customer);
+    void updateCustomer(@RequestBody Customer customer) {
+        customerService.updateCustomer(customer);
     }
 
+    /**
+     * Delete customer by id
+     * @param id
+     */
     @DeleteMapping("/{id}")
     void deleteCustomer(@PathVariable Long id) {
         customerService.deleteCustomerById(id);

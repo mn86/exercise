@@ -69,6 +69,7 @@ class OrderForm extends Component {
                                     <label htmlFor="customer.id">Customer id:</label>
                                     <Field name="customer.id" />
                                 </div>
+                                <div style={{fontSize: "10px", marginBottom: "7px"}}>* Dates are Unix Timestamps (with milliseconds)</div>
 
                                 <button type="submit">Submit</button>
                             </Form>

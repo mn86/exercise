@@ -22,8 +22,8 @@ public class OrderService {
         return orderRepository.save(order).getId();
     }
 
-    Long updateOrder(Order order) {
-        return orderRepository.save(order).getId();
+    void updateOrder(Order order) {
+        orderRepository.save(order);
     }
 
     void deleteOrderById(Long id) {

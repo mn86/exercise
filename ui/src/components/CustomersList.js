@@ -57,7 +57,7 @@ class CustomersList extends Component {
                     defaultPageSize={10}
                     noDataText='No customers data, please add some using h2 console or /test page'
                     getTdProps={(state, rowInfo, column, instance) => {
-                        if (rowInfo) {
+                        if (rowInfo && rowInfo.original && rowInfo.original.id) {
                             return {
                                 onClick: () => {
                                     this.props.history.push('/customer/' + rowInfo.original.id);

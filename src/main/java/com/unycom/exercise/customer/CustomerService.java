@@ -39,8 +39,8 @@ public class CustomerService {
         return customerRepository.save(customer).getId();
     }
 
-    Long updateCustomer(Customer customer) {
-        return customerRepository.save(customer).getId();
+    void updateCustomer(Customer customer) {
+        customerRepository.save(customer);
     }
 
     void deleteCustomerById(Long id) {

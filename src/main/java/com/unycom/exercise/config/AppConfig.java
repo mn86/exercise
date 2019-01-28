@@ -11,9 +11,12 @@ import java.util.List;
 @Configuration
 public class AppConfig {
 
+    /**
+     * ModelMapper with additional mapper implementation to map Customer's orders count to CustomerDto
+     * @return modelMapper
+     */
     @Bean
     public ModelMapper modelMapper() {
-        // this mapper has additional mapping to map orders count from Customer to DTO
         ModelMapper modelMapper = new ModelMapper();
         modelMapper
                 .typeMap(Customer.class, CustomerDto.class)

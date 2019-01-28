@@ -18,22 +18,40 @@ public class OrderController {
         this.orderService = orderService;
     }
 
+    /**
+     * Returns Order by id
+     * @param id
+     * @return Order
+     */
     @GetMapping("/{id}")
     Order getOrderById(@PathVariable Long id) {
         return orderService.getOrderById(id);
     }
 
+    /**
+     * Saves new Order entity
+     * @param order
+     * @return id
+     */
     @PostMapping
     Long saveNewOrder(@RequestBody Order order) {
         order.setOrderDate(new Date());
         return orderService.saveNewOrder(order);
     }
 
+    /**
+     * Updates Order
+     * @param order
+     */
     @PutMapping
-    Long updateOrder(@RequestBody Order order) {
-        return orderService.updateOrder(order);
+    void updateOrder(@RequestBody Order order) {
+        orderService.updateOrder(order);
     }
 
+    /**
+     * Deletes Order by id
+     * @param id
+     */
     @DeleteMapping
     void deleteOrder(Long id) {
         orderService.deleteOrderById(id);

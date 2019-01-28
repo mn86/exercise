@@ -2,14 +2,16 @@ package com.unycom.exercise.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-public class WebConfiguration extends WebMvcConfigurerAdapter {
+public class WebConfig implements WebMvcConfigurer {
 
+    /**
+     * WebConfig configuration required to make React served well with Spring Boot
+     */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        // this method is required to make React routing work well with Spring Boot
         registry.addViewController("/{spring:\\w+}").setViewName("forward:/");
         registry.addViewController("/**/{spring:\\w+}").setViewName("forward:/");
         registry.addViewController("/{spring:\\w+}/**{spring:?!(\\.js|\\.css)$}").setViewName("forward:/");
